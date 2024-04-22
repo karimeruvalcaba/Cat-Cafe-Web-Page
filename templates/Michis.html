@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michi Café - Michis</title>
+    <link rel="stylesheet" href="../static/css/Michis.css">
+    <link rel="stylesheet" href="../static/css/navbar.css">
+    <link rel="icon" href="../static/logo.PNG">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .michi-info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--<iframe src="../templates/navbar.html" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>-->
+    <header>
+        {% include navbar %}
+    </header>
+   
+
+    <div id="container">
+        <div class="container-items">
+            {% for cat in cats %}
+            <div class="item">
+                <figure>
+                    <img src="{{ cat[3] }}" alt="{{ cat[1] }}">
+                </figure>
+                <div class="info-product">
+                    <center><h2>{{ cat[1] }}</h2></center>
+                    <button id="btnPatitas">Información</button>
+                    <div id="infoPatitas" class="michi-info">
+                        <h3>{{ cat[1] }}</h3>
+                        <p>{{ cat[2] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.info-product button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const michiInfo = this.nextElementSibling;
+                    michiInfo.style.display = michiInfo.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+    <script src="../static/js/navbar.js"></script>
+</body>
+</html>

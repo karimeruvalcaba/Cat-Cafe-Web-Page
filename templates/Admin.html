@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitante Data</title>
+    <link rel="stylesheet" href="/static/css/Admin.css">
+    <link rel="icon" type="png" href="/static/images/logo.PNG">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    {% include navbar %}
+    
+    <div class="col-md-11">
+        <h2>Solicitante Data</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ocupación</th>
+                <th>Dirección</th>
+                <th>Email</th>
+                <th>No. Tel</th>
+                <th>Nombre del Gato</th>
+                <th>Motivo de Adopción</th>
+            </tr>
+            <!-- Python code to fetch data -->
+            {% for row in solicitante_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{ row[8] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Gatos Data</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Información</th>
+            </tr>
+            <!-- Python code to fetch cats data -->
+            {% for row in gatos_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Modificar Gato</h3>
+        <form action="/modify_cat" method="POST">
+            <label for="cat_id">Gato Id:</label>
+            <input type="text" id="cat_id" name="cat_id"><br><br>
+            <label for="cat_name">Gato Nombre:</label>
+            <input type="text" id="cat_name" name="cat_name"><br><br>
+            <label for="cat_info">Gato Información:</label>
+            <input type="text" id="cat_info" name="cat_info"><br><br>
+            <label for="cat_imagen">Gato Imagen: (Añade link de una imagen)</label>
+            <input type="text" id="cat_imagen" name="cat_imagen"><br><br>
+            <input type="submit" value="Modificar Gato">
+        </form>
+        
+
+        <h2>Productos Data</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+            <!-- Python code to fetch products data -->
+            {% for row in productos_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Modificar Productos</h3>
+<form action="/modify_product" method="POST">
+    <label for="product_id">Producto Id:</label>
+    <input type="text" id="product_id" name="product_id"><br><br>
+    <label for="product_name">Producto Nombre:</label>
+    <input type="text" id="product_name" name="product_name"><br><br>
+    <label for="product_price">Producto Precio:</label>
+    <input type="text" id="product_price" name="product_price"><br><br>
+    <label for="product_imagen">Producto Imagen:  (Añade link de una imagen)</label>
+    <input type="text" id="product_imagen" name="product_imagen"><br><br>
+    <input type="submit" value="Modificar Productos">
+</form>
+<form action="/logout" method="GET">
+    <input type="submit" value="Logout">
+</form>
+
+    </div>
+</body>
+</html>

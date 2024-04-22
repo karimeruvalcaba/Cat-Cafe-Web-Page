@@ -1,0 +1,67 @@
+@import url('https://fonts.cdnfonts.com/css/more-sugar');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'More Sugar', sans-serif;
+}
+
+iframe {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+}
+
+.header {
+    background: linear-gradient(to right, #cb232c, #ce1d61);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 145px; /* 15% */
+    padding: 5px 150px;
+}
+
+#img_logo {
+    height: 8em;
+    width: auto;
+    transition: all 0.3s;
+    padding: 10px;
+}
+
+#img_logo:hover {
+    transform: scale(1.2);
+}
+
+.header .nav-links {
+    list-style: none;
+}
+
+.header .nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header img {
+    height: 8em;
+    width: 100%;
+    display: inline-block;
+}
+
+.header .nav-links li:hover {
+    transform: scale(1.1);
+    color: #7ED2C5;
+}
+
+.header .nav-links a {
+    font-size: 1000;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header .nav-links a:hover {
+    color: #0081C0;
+}
